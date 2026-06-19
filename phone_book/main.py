@@ -6,13 +6,13 @@ FILE_NAME = 'contacts.json'
 def load_contacts():
     """Загружает контакты из JSON-файла."""
     if os.path.exists(FILE_NAME):
-        with open(FILE_NAME, 'r', encoding='utf-8') as f:
+        with open(FILE_NAME, 'r') as f:
             return json.load(f)
     return []
 
 def save_contacts(contacts):
     """Сохраняет контакты в JSON-файл."""
-    with open(FILE_NAME, 'w', encoding='utf-8') as f:
+    with open(FILE_NAME, 'w') as f:
         json.dump(contacts, f, ensure_ascii=False, indent=2)
 
 def add_contact():
