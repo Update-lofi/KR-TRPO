@@ -17,9 +17,20 @@ def save_contacts(contacts):
 
 def add_contact():
     """Добавляет новый контакт."""
-    # TODO: запросить имя, телефон, email у пользователя
-    # TODO: добавить контакт в список и сохранить
-    pass
+    name = input("Введите имя: ")
+    phone = input("Введите телефон: ")
+    email = input("Введите email: ")
+    
+    new_contact = {
+        "name": name,
+        "phone": phone,
+        "email": email
+    }
+    
+    contacts = load_contacts()
+    contacts.append(new_contact)
+    save_contacts(contacts)
+    print("Контакт добавлен!")
 
 def show_all():
     """Выводит все контакты."""
