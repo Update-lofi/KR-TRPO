@@ -35,8 +35,13 @@ def add_contact():
 def show_all():
     """Выводит все контакты."""
     contacts = load_contacts()
-    # TODO: вывести все контакты в формате: Имя | Телефон | Email
-    pass
+    print("\n=== Все контакты ===")
+    if not contacts:
+        print("Телефонная книга пуста.")
+        return
+        
+    for contact in contacts:
+        print(f"Имя: {contact['name']} | Телефон: {contact['phone']} | Email: {contact['email']}")
 
 def search_contact():
     """Ищет контакт по имени."""
