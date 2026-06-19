@@ -45,10 +45,17 @@ def show_all():
 
 def search_contact():
     """Ищет контакт по имени."""
+    search_name = input("Введите имя для поиска: ").lower()
     contacts = load_contacts()
-    # TODO: запросить имя для поиска
-    # TODO: найти контакты с таким именем и вывести
-    pass
+    
+    found_contacts = [c for c in contacts if search_name in c['name'].lower()]
+    
+    print("\nНайденные контакты:")
+    if not found_contacts:
+        print("Контакты не найдены.")
+    else:
+        for contact in found_contacts:
+            print(f"Имя: {contact['name']} | Телефон: {contact['phone']} | Email: {contact['email']}")
 
 def show_menu():
     """Показывает меню и обрабатывает выбор пользователя."""
